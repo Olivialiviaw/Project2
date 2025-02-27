@@ -6,74 +6,61 @@
     <title>1 INPUT 1 OUTPUT TEMPLATE</title>
     <link rel="stylesheet" href="assets/main.css">
     <style>
-
-        /* STYLE FOR THE INPUT FIELD */
-        #charInput {
-
-        }
-
-        /* STYLE FOR THE SUBMIT BUTTON */
-        #submitButton {
-
-        }
-
-        /* STYLE FOR THE IMAGE */
         #displayedImage {
-            display: none; /* This line is mandatory */
+            display: none; /* 初始隐藏 */
         }
     </style>
 </head>
 <body>
 
-    
-    <!-- INPUT FIELD FOR 1 CHARACTER -->
+    <!-- 输入框 -->
     <input type="text" id="charInput" maxlength="1">
 
-    <!-- BUTTON TO DISPLAY IMAGE -->
+    <!-- 按钮 -->
     <button onclick="displayImage()" id="submitButton">Show Image</button>
 
-    <!-- IMAGE TO DISPLAY -->
+    <!-- 显示图片 -->
     <img id="displayedImage" src="" alt="Displayed Image">
-    <img src="assets/download_副本.jpg" alt="A">
-<img src="assets/download_副本.jpg" alt="B">
-<img src="assets/images.jpg" alt="C">
-<img src="assets/download_副本2.jpg" alt="D">
-<img src="assets/download_副本3.jpg" alt="E">
-<img src="assets/download_副本4.jpg" alt="F">
-<img src="assets/download_副本5.jpg" alt="G">
-<img src="assets/download_副本6.jpg" alt="H">
-<img src="assets/download_副本7.jpg" alt="I">
-<img src="assets/download_副本8.jpg" alt="J">
-<img src="assets/download_副本9.jpg" alt="K">
-<img src="assets/download_副本10.jpg" alt="L">
-<img src="assets/download_副本11.jpg" alt="M">
-<img src="assets/download_副本12.jpg" alt="N">
-<img src="assets/images_副本.jpg" alt="O">
-<img src="assets/download_副本13.jpg" alt="P">
-<img src="assets/download_副本14.jpg" alt="Q">
-<img src="assets/download_副本15.jpg" alt="R">
-<img src="assets/download_副本16.jpg" alt="S">
-<img src="assets/images_副本2.jpg" alt="T">
-<img src="assets/download_副本17.jpg" alt="U">
-<img src="assets/download_副本18.jpg" alt="V">
-<img src="assets/download_副本19.jpg" alt="W">
-<img src="assets/download_副本20.jpg" alt="X">
-<img src="assets/download_副本21.jpg" alt="Y">
-<img src="assets/download_副本22.jpg" alt="Z">
 
-    <!-- Image Display Script Below -->
+    <!-- JavaScript 逻辑 -->
     <script>
+        const images = {
+            "A": "assets/download_副本.jpg",
+            "B": "assets/download_副本.jpg",
+            "C": "assets/images.jpg",
+            "D": "assets/download_副本2.jpg",
+            "E": "assets/download_副本3.jpg",
+            "F": "assets/download_副本4.jpg",
+            "G": "assets/download_副本5.jpg",
+            "H": "assets/download_副本6.jpg",
+            "I": "assets/download_副本7.jpg",
+            "J": "assets/download_副本8.jpg",
+            "K": "assets/download_副本9.jpg",
+            "L": "assets/download_副本10.jpg",
+            "M": "assets/download_副本11.jpg",
+            "N": "assets/download_副本12.jpg",
+            "O": "assets/images_副本.jpg",
+            "P": "assets/download_副本13.jpg",
+            "Q": "assets/download_副本14.jpg",
+            "R": "assets/download_副本15.jpg",
+            "S": "assets/download_副本16.jpg",
+            "T": "assets/images_副本2.jpg",
+            "U": "assets/download_副本17.jpg",
+            "V": "assets/download_副本18.jpg",
+            "W": "assets/download_副本19.jpg",
+            "X": "assets/download_副本20.jpg",
+            "Y": "assets/download_副本21.jpg",
+            "Z": "assets/download_副本22.jpg"
+        };
+
         function displayImage() {
             const input = document.getElementById("charInput").value.toUpperCase();
             const imgElement = document.getElementById("displayedImage");
-            
-            // Assign an image based on character (A-Z)
-            const index = input.charCodeAt(0) - 65; // 'A' is 65 in ASCII
-            if (index >= 0 && index < images.length) {
-                imgElement.src = images[index];
+
+            if (images[input]) {
+                imgElement.src = images[input];
                 imgElement.style.display = "block";
             } else {
-                // IF INVALID INPUT IS ENTERED, DISPLAY ALTERNATE IMAGE
                 imgElement.src = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmtkdnJhMXY4Njd1cXR3MTM3MW1nMzZ1NXNhNHlhOHA0MWF2dDUzdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13dRJkj5wgKq9q/giphy.gif";
                 imgElement.style.display = "block";
             }
