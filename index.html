@@ -7,22 +7,18 @@
     <link rel="stylesheet" href="assets/main.css">
     <style>
         #displayedImage {
-            display: none; /* 初始隐藏 */
+            display: none; 
         }
     </style>
 </head>
 <body>
 
-    <!-- 输入框 -->
     <input type="text" id="charInput" maxlength="1">
 
-    <!-- 按钮 -->
-    <button onclick="displayImage()" id="submitButton">Show Image</button>
+    <button onclick="displayImage()" id="submitButton">Find Animals</button>
 
-    <!-- 显示图片 -->
     <img id="displayedImage" src="" alt="Displayed Image">
 
-    <!-- JavaScript 逻辑 -->
     <script>
         const images = {
             "A": "assets/download_副本.jpg",
